@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oak Pensions - Retirement Planning Information</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      header {
+        text-align: center;
+        color: white;
+        padding: 20px 0 40px;
+      }
+
+      h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .subtitle {
+        font-size: 1.2em;
+        opacity: 0.9;
+      }
+
+      .images-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        margin-bottom: 40px;
+      }
+
+      .image-container {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease;
+      }
+
+      .image-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+      }
+
+      .image-container img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .image-label {
+        background: #2d5a3d;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.1em;
+      }
+
+      .download-section {
+        text-align: center;
+        margin-top: 40px;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 30px;
+        margin: 10px;
+        background: #d4af37;
+        color: #1a472a;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        font-size: 1em;
+      }
+
+      .btn:hover {
+        background: #f0c547;
+        transform: scale(1.05);
+      }
+
+      footer {
+        text-align: center;
+        color: white;
+        padding: 30px 0;
+        margin-top: 40px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 1.8em;
+        }
+
+        .subtitle {
+          font-size: 1em;
+        }
+
+        .btn {
+          display: block;
+          margin: 10px auto;
+          max-width: 250px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Oak Pensions</h1>
+        <p class="subtitle">Retirement Planning Information</p>
+      </header>
+
+      <div class="images-wrapper">
+        <div class="image-container">
+          <div class="image-label">
+            Page 1 - About Oak Pensions & Retirement Planning
+          </div>
+          <img id="image1" src="" alt="Oak Pensions Brochure - Page 1" />
+        </div>
+
+        <div class="image-container">
+          <div class="image-label">Page 2 - How to Open Your RSA Account</div>
+          <img id="image2" src="" alt="Oak Pensions Brochure - Page 2" />
+        </div>
+      </div>
+
+      <div class="download-section">
+        <h2 style="color: white; margin-bottom: 20px">Need These Images?</h2>
+        <button
+          class="btn"
+          onclick="downloadImage('image1', 'Oak-Pensions-Page-1.jpg')"
+        >
+          Download Page 1
+        </button>
+        <button
+          class="btn"
+          onclick="downloadImage('image2', 'Oak-Pensions-Page-2.jpg')"
+        >
+          Download Page 2
+        </button>
+      </div>
+
+      <footer>
+        <p>&copy; Oak Pensions Limited - Securing Your Retirement</p>
+        <p style="margin-top: 10px; font-size: 0.9em">
+          Contact: 07002255625 | customercare@oakpensions.com
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      function downloadImage(imgId, filename) {
+        const img = document.getElementById(imgId);
+        const link = document.createElement("a");
+        link.href = img.src;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+
+      // Instructions will appear here for users to add their images
+      window.addEventListener("DOMContentLoaded", function () {
+        const img1 = document.getElementById("image1");
+        const img2 = document.getElementById("image2");
+
+        // Check if images are loaded
+        if (!img1.src || img1.src === window.location.href) {
+          console.log("Please add your images - see instructions below");
+        }
+      });
+    </script>
+  </body>
+</html>
